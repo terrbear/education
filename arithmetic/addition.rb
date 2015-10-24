@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 gem 'colorize'
 require 'colorize'
 require 'timeout'

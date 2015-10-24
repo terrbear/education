@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 gem 'colorize'
 require 'colorize'
 
@@ -7,7 +9,6 @@ begin
   File.read(ARGV.first).split("\n").sample(20).each do |line|
     word, explanation = line.split(':')
     WORDS[word] = explanation
-    puts "added word: #{word}"
   end
 rescue
   $stderr.puts "Have to provide a filename for words"
@@ -21,7 +22,7 @@ name = ''
 at_exit do
   puts "#{name}'s report card:"
   puts "You spelled a total of #{right + wrong} words."
-  
+
   if(wrong == 0)
     puts "You spelled all the words right!".colorize(:green)
   else
@@ -68,4 +69,3 @@ while WORDS.any?
   end
   sleep 1
 end
-

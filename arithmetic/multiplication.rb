@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 gem 'colorize'
 require 'colorize'
 require 'timeout'
@@ -13,7 +15,7 @@ at_exit do
   out += "You got #{$right / ($right + $wrong).to_f * 100} (#{$right}) correct!\n".colorize(:green)
   out += "You got #{$wrong / ($right + $wrong).to_f * 100} (#{$wrong}) incorrect!\n".colorize(:red)
 
-  File.open("multiplication.stats", "a") do |f| 
+  File.open("multiplication.stats", "a") do |f|
     f.write("-" * 80)
     f.write("\n")
     f.write(Time.now.to_s)
@@ -42,7 +44,7 @@ QUESTIONS.times do |test|
   answer = gets.chomp
 
 
-  if answer.to_i == (left * right) 
+  if answer.to_i == (left * right)
     if (Time.now - ts > TIMER)
       puts "TIME!".colorize(:orange)
       $wrong += 1
